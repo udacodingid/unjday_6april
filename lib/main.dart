@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unjday_6april/detail_movie.dart';
+import 'package:unjday_6april/ui_view/list_user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -119,6 +120,12 @@ class _MovieAppHomeState extends State<MovieAppHome> {
       appBar: AppBar(
         title: Text('Movie App'),
         backgroundColor: Colors.greenAccent,
+        leading: IconButton(
+          icon: const Icon(Icons.menu_book),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> PageListUser()));
+          },
+        ),
       ),
 
       body: GridView.count(crossAxisCount: 2,
