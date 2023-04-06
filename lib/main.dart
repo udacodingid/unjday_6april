@@ -114,6 +114,8 @@ class _MovieAppHomeState extends State<MovieAppHome> {
     final double itemWidth = size.width /2;
 
     return Scaffold(
+
+      backgroundColor: Colors.greenAccent,
       appBar: AppBar(
         title: Text('Movie App'),
         backgroundColor: Colors.greenAccent,
