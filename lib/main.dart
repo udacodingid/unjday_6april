@@ -135,3 +135,11 @@ class _MovieAppHomeState extends State<MovieAppHome> {
   }
 }
 
+//Proses untuk client server
+//bikin api / restful / backend
+//dapatkan respond api nya
+// baru kita generate model dari respond yang ada
+//https://app.quicktype.io/
+//setelah generate dapat model --> copy dan masukkan ke project flutter
+//baru kita implement dan buat ui view
+
