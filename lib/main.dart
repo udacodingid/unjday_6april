@@ -73,7 +73,7 @@ class _MovieAppHomeState extends State<MovieAppHome> {
                     fit: BoxFit.cover,
                     height: 150,
                     width: 150,
-                  )
+                  ),
                 ],
               ),
 
@@ -83,16 +83,38 @@ class _MovieAppHomeState extends State<MovieAppHome> {
       );
     }
   }
+
+  //proses do inbackground
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dataListMovie();
+  }
+
   @override
   Widget build(BuildContext context) {
+    //ini untuk responsive
+    final Size size = MediaQuery.of(context).size;
+    final double itemHeight = (size.height - kToolbarHeight - 24) /2 ;
+    final double itemWidth = size.width /2;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Movie App'),
         backgroundColor: Colors.greenAccent,
       ),
-      body: Center(
-        child: Text('Hello Ini Page Movie App'),
+
+      body: GridView.count(crossAxisCount: 2,
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        childAspectRatio: (itemWidth / itemHeight),
+        children: daftarFilm,
       ),
+
+      // body: Center(
+      //   child: Text('Hello Ini Page Movie App'),
+      // ),
     );
   }
 }
