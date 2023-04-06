@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unjday_6april/detail_movie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,18 +63,31 @@ class _MovieAppHomeState extends State<MovieAppHome> {
 
       daftarFilm.add(
         Container(
-          padding: const EdgeInsets.all(10), //space kiri kanan atas bawah
+          padding: const EdgeInsets.only(top: 10, left: 5, right: 5), //space kiri kanan atas bawah
           child: Card(
             child: InkWell(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return DetailPageMovie(title: title, image: "gambar/$images");
+                }));
+              },
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // mainAxisAlignment: MainAxisAlignment.eEvenly,
+
                 children: [
                   Image(image: AssetImage("gambar/$images"),
-                    fit: BoxFit.cover,
-                    height: 150,
-                    width: 150,
+                    fit: BoxFit.contain,
+                    // width: 150,
                   ),
+                  const SizedBox(height: 5,),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.greenAccent
+                    ),
+                  )
                 ],
               ),
 
