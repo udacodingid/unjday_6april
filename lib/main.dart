@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:unjday_6april/detail_movie.dart';
 import 'package:unjday_6april/ui_view/list_user.dart';
+import 'package:unjday_6april/ui_view/menu_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MovieAppHome(),
+      home: const PageMenu(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -121,9 +122,10 @@ class _MovieAppHomeState extends State<MovieAppHome> {
         title: Text('Movie App'),
         backgroundColor: Colors.greenAccent,
         leading: IconButton(
-          icon: const Icon(Icons.menu_book),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> PageListUser()));
+            Navigator.of(context).pop();
+            // Navigator.push(context, MaterialPageRoute(builder: (context)=> PageListUser()));
           },
         ),
       ),
