@@ -21,7 +21,7 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
         isLoading = true;
       });
 
-      http.Response res = await http.get(Uri.parse('http://192.168.1.20/beritaDb/getBerita.php'));
+      http.Response res = await http.get(Uri.parse('http://192.168.1.3/beritaDb/getBerita.php'));
       List<Datum>? data = modelBeritaFromJson(res.body).data;
 
       setState(() {
@@ -88,7 +88,7 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
                         //   width: MediaQuery.of(context).size.width,
                         //   fit: BoxFit.fitWidth,
                         // ),
-                        ImageNetwork(image: 'http://192.168.1.20/beritaDb/gambar_berita/' + nListData.gambarBerita,
+                        ImageNetwork(image: 'http://192.168.1.3/beritaDb/gambar_berita/' + nListData.gambarBerita,
                             height: 50, width:  MediaQuery.of(context).size.width,),
                         ListTile(
                           title: Text(nListData.judul,

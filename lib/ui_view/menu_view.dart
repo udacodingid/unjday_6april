@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:unjday_6april/main.dart';
 import 'package:unjday_6april/ui_view/list_user.dart';
+import 'package:unjday_6april/ui_view/register_view.dart';
 import 'package:unjday_6april/ui_view/view_berita.dart';
 
 class PageMenu extends StatelessWidget {
@@ -39,6 +40,14 @@ class PageMenu extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> PageHomeBerita()));
             },
               child: Text('List Berita'),
+              color: Colors.black,
+              textColor: Colors.yellowAccent,
+            ),
+            SizedBox(height: 8,),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> PageRegister()));
+            },
+              child: Text('Login Register'),
               color: Colors.black,
               textColor: Colors.yellowAccent,
             ),
