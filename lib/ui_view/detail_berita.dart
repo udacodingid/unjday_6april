@@ -19,7 +19,7 @@ class DetailBerita extends StatelessWidget {
         padding: EdgeInsets.all(8),
         child: ListView(
           children: [
-            ImageNetwork(image: 'http://192.168.1.3/beritaDb/gambar_berita/${listBerita.gambarBerita}' ,
+            ImageNetwork(image: 'http://10.208.100.62/beritaDb/gambar_berita/${listBerita.gambarBerita}' ,
               height: 200, width:  MediaQuery.of(context).size.width,
               fitWeb: BoxFitWeb.contain,),
             SizedBox(height: 8,),

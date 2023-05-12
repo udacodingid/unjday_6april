@@ -153,6 +153,7 @@ class _PageRegisterState extends State<PageRegister> {
                 SizedBox(height: 8,),
                 TextFormField(
                   controller: etPassword,
+                  obscureText: true,
                   validator: (val){
                     return val!.isEmpty ? "Tidak Boleh Kosong!" : null;
                   },

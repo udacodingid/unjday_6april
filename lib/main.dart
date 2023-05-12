@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:unjday_6april/detail_movie.dart';
 import 'package:unjday_6april/ui_view/list_user.dart';
 import 'package:unjday_6april/ui_view/menu_view.dart';
+import 'package:unjday_6april/ui_view/splash_screen_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const PageMenu(),
+      home: const PageSplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

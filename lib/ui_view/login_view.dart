@@ -4,6 +4,7 @@ import 'package:unjday_6april/model/model_login.dart';
 import 'package:unjday_6april/ui_view/register_view.dart';
 import 'package:unjday_6april/ui_view/view_berita.dart';
 import 'package:unjday_6april/utils/api.dart';
+import 'package:unjday_6april/utils/session_manager.dart';
 
 class PageLogin extends StatefulWidget {
   const PageLogin({Key? key}) : super(key: key);
@@ -39,6 +40,8 @@ class _PageLoginState extends State<PageLogin> {
       if(data.value == 1){
         setState(() {
           isLoading = false;
+          //simpan session
+          sessionManager.savePref(data.value ?? 0, data.id ?? "", data.username ?? "", data.fullname ?? "");
 
           Navigator.pushAndRemoveUntil(context,
               MaterialPageRoute(builder: (_)=> PageHomeBerita()),
@@ -116,6 +119,7 @@ class _PageLoginState extends State<PageLogin> {
                 SizedBox(height: 8,),
                 TextFormField(
                   controller: etPassword,
+                  obscureText: true,
                   validator: (val){
                     return val!.isEmpty ? "Tidak Boleh Kosong!" : null;
                   },

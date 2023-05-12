@@ -3,6 +3,9 @@ import 'package:image_network/image_network.dart';
 import 'package:unjday_6april/model/model_berita.dart';
 import 'package:http/http.dart' as http;
 import 'package:unjday_6april/ui_view/detail_berita.dart';
+import 'package:unjday_6april/ui_view/login_view.dart';
+import 'package:unjday_6april/ui_view/page_profile.dart';
+import 'package:unjday_6april/utils/session_manager.dart';
 
 class PageHomeBerita extends StatefulWidget {
   const PageHomeBerita({Key? key}) : super(key: key);
@@ -21,7 +24,7 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
         isLoading = true;
       });
 
-      http.Response res = await http.get(Uri.parse('http://192.168.1.3/beritaDb/getBerita.php'));
+      http.Response res = await http.get(Uri.parse('http://10.208.100.62/beritaDb/getBerita.php'));
       List<Datum>? data = modelBeritaFromJson(res.body).data;
 
       setState(() {
@@ -57,7 +60,24 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
     return Scaffold(
       appBar: AppBar(
         title: Text('News App'),
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Colors.orange,
+        actions: [
+
+          IconButton(onPressed: (){
+            //kita arahkan ke page profile
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> PageProfile()));
+          },
+              icon: Icon(Icons.person)),
+
+          IconButton(onPressed: () async{
+            //ini utk logout
+            await sessionManager.clearSession().then((_){
+              Navigator.pushAndRemoveUntil(context,
+                  MaterialPageRoute(builder: (_) => PageLogin()), (route) => false);
+            });
+          },
+              icon: Icon(Icons.exit_to_app)),
+        ],
       ),
 
       body: isLoading? const Center(
@@ -88,7 +108,7 @@ class _PageHomeBeritaState extends State<PageHomeBerita> {
                         //   width: MediaQuery.of(context).size.width,
                         //   fit: BoxFit.fitWidth,
                         // ),
-                        ImageNetwork(image: 'http://192.168.1.3/beritaDb/gambar_berita/' + nListData.gambarBerita,
+                        ImageNetwork(image: 'http://10.208.100.62/beritaDb/gambar_berita/' + nListData.gambarBerita,
                             height: 50, width:  MediaQuery.of(context).size.width,),
                         ListTile(
                           title: Text(nListData.judul,
